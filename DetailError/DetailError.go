@@ -19,9 +19,9 @@ func (e *DetailError) Error() string {
 
 func (e *DetailError) String() string {
 	if e == nil {
-		return fmt.Sprint("[errno:0] [errmsg:ok]")
+		return fmt.Sprint("[errno:-1 errmsg:nil]")
 	}
-	return fmt.Sprintf("[errno:%d] [errmsg:%s] [errpos:%s]", e.ErrNo, e.ErrMsg, e.ErrPos)
+	return fmt.Sprintf("[errno:%d errmsg:%s errpos:%s]", e.ErrNo, e.ErrMsg, e.ErrPos)
 }
 
 func newDetailError(errno int, errmsg string) *DetailError {
